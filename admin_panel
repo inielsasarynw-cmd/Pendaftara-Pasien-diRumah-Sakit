@@ -1,0 +1,53 @@
+<?php
+session_start();
+include "koneksi.php";
+
+if (!isset($_SESSION['admin_id'])) {
+    header("Location: login_admin.php");
+    exit;
+}
+
+// Ambil data dokter + poli
+$dokter = mysqli_query($koneksi, "
+    SELECT dokter.id, dokter.nama_dokter, poli.nama_poli, poli.id as poli_id
+    FROM dokter
+    LEFT JOIN poli ON dokter.poli_id = poli.id
+");
+
+$poli = mysqli_query($koneksi, "SELECT * FROM poli");
+?>
+
+<h2>Dashboard Admin</h2>
+<a href="logout_admin.php">Logout</a>
+
+<h3>Edit Data Dokter</h3>
+<table border="1" cellpadding="5">
+    <tr>
+        <th>Nama Dokter</th>
+        <th>Poli</th>
+        <th>Aksi</th>
+    </tr>
+    <?php while ($row = mysqli_fetch_assoc($dokter)) { ?>
+        <tr>
+            <form method="post" action="update_dokter.php">
+                <td><input type="text" name="nama_dokter" value="<?= $row['nama_dokter'] ?>"></td>
+                <td>
+                    <select name="poli_id">
+                        <?php 
+                        mysqli_data_seek($poli, 0); // reset pointer
+                        while ($p = mysqli_fetch_assoc($poli)) { 
+                        ?>
+                            <option value="<?= $p['id'] ?>" <?= $row['poli_id']==$p['id'] ? "selected" : "" ?>>
+                                <?= $p['nama_poli'] ?>
+                            </option>
+                        <?php } ?>
+                    </select>
+                </td>
+                <td>
+                    <input type="hidden" name="id" value="<?= $row['id'] ?>">
+                    <button type="submit">Simpan</button>
+                </td>
+            </form>
+        </tr>
+    <?php } ?>
+</table>

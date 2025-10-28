@@ -1,0 +1,142 @@
+/* CSS for admin_dashboard.php to match blue theme of other pages */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #91bff8ff; /* Light blue background matching index.php */
+    margin: 0;
+    padding: 20px;
+    color: #333;
+}
+
+h2, h3 {
+    color: #000000; /* Black color for headings */
+    text-align: center;
+}
+
+table {
+    border-collapse: collapse;
+    width: 90%;
+    margin: 20px auto;
+    background: white;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+table th {
+    background: #0d6efd; /* Blue header matching riwayat_kunjungan.php */
+    color: white;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+table td {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+a {
+    color: #1a2027ff; /* Dark link color matching index.php */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.btn-kembali {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    background: #5fd871ff; /* Green button matching index.php */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+.btn-kembali:hover {
+    background: #2ee149ff; /* Darker green on hover */
+}
+
+/* Override inline styles for form-tambah to fit theme */
+.form-tambah {
+    background-color: white !important;
+    border: 1px solid #ddd !important;
+    border-radius: 8px !important;
+    padding: 20px !important;
+    max-width: 400px !important;
+    margin: 20px auto !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
+}
+
+.form-tambah h3 {
+    color: #000000 !important; /* Black */
+    margin-top: 0 !important;
+}
+
+.form-tambah button {
+    background-color: #5fd871ff !important; /* Green */
+    color: white !important;
+    padding: 10px 15px !important;
+    border: none !important;
+    border-radius: 4px !important;
+    cursor: pointer !important;
+    display: block !important;
+    margin: 20px auto 0 !important;
+    width: auto !important;
+}
+
+.form-tambah button:hover {
+    background-color: #2ee149ff !important; /* Darker green */
+}
+
+/* Messages keep similar but ensure consistency */
+.message {
+    margin-bottom: 10px !important;
+    padding: 10px !important;
+    border-radius: 4px !important;
+}
+
+.success {
+    background-color: #d4edda !important;
+    color: #155724 !important;
+    border: 1px solid #c3e6cb !important;
+}
+
+.error {
+    background-color: #f8d7da !important;
+    color: #721c24 !important;
+    border: 1px solid #f5c6cb !important;
+}
+
+/* Additional styles for form elements inside .form-tambah */
+.form-tambah label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+.form-tambah input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.form-tambah select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.form-tambah input[type="text"]:focus,
+.form-tambah select:focus {
+    border-color: #5c96e1ff;
+    outline: none;
+}
